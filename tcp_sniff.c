@@ -60,7 +60,7 @@ void got_packet(u_char *args, const struct pcap_pkthdr *header,
     struct ipheader * ip = (struct ipheader *)
                            (packet + sizeof(struct ethheader)); 
     struct tcpheader * tcp = (struct tcpheader *)
-                           (packet + sizeof(struct ethheader) + (ip->iph_ihl * 4));
+                           (packet + sizeof(struct ethheader) + (struct ipheader));
                            
     printf("       src mac: %02X:%02X:%02X:%02X:%02X:%02X\n", eth->ether_shost[0], eth->ether_shost[1], eth->ether_shost[2], eth->ether_shost[3], eth->ether_shost[4], eth->ether_shost[5]);   
     printf("         dst mac: %02X:%02X:%02X:%02X:%02X:%02X\n", eth->ether_dhost[0], eth->ether_dhost[1], eth->ether_dhost[2], eth->ether_dhost[3], eth->ether_dhost[4], eth->ether_dhost[5]);    
